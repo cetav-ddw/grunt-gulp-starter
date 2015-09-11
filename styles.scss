@@ -1,0 +1,27 @@
+$main-color: skyblue;
+$text-color: white;
+
+html {
+    background: $main-color;
+    color: $text-color;
+    font-size: 24px;
+    text-align: center;
+}
+
+body {
+    max-width: 800px;
+
+    .main {
+        text-transform: uppercase;
+        text-decoration: underline;
+    }
+
+    .content {
+        font-size: 18px;
+
+        .content-img {
+            border: 25px solid darken($main-color, 50%);
+        }
+    }
+}
+
