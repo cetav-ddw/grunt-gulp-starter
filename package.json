@@ -1,0 +1,20 @@
+{
+  "name": "grunt-gulp-starter",
+  "version": "1.0.0",
+  "description": "a starter repo for using grunt or gulp",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cetav-ddw/grunt-gulp-starter.git"
+  },
+  "author": "Marcial Cambronero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cetav-ddw/grunt-gulp-starter/issues"
+  },
+  "homepage": "https://github.com/cetav-ddw/grunt-gulp-starter",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "gulp": "^3.9.0"
+  }
+}
