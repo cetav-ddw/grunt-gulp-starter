@@ -1,9 +1,14 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         browserSync: {
-            bsFiles: { src : ['*.css', '*.html'] },
-            options: {
-                server: { baseDir: "./" }
+            dev: {
+                bsFiles: { src : ['*.css', '*.html', 'assets/main.js'] },
+                options: {
+                    server: {
+                        baseDir: './'
+                    },
+                    watchTask: true
+                }
             }
         },
         sass: {
@@ -20,13 +25,22 @@ module.exports = function(grunt) {
             dist: {
                 files: { 'assets/main.js': ['main.js'] }
             }
+        },
+        watch: {
+            css: {
+                files: '*.scss',
+                tasks: ['sass']
+            },
+            js: {
+                files: '*.js',
+                tasks: ['uglify']
+            }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-browser-sync');
 
-    grunt.registerTask('server', ['browserSync']);
-    grunt.registerTask('css', ['sass']);
-    grunt.registerTask('minify', ['uglify']);
+    grunt.registerTask('dev', ['sass', 'uglify','browserSync', 'watch']);
 }
