@@ -5,8 +5,21 @@ module.exports = function(grunt) {
             options: {
                 server: { baseDir: "./" }
             }
+        },
+        sass: {
+            options: {
+                sourceMap: true
+            },
+            dist: {
+                files: {
+                    'styles.css': 'styles.scss'
+                }
+            }
         }
     });
     grunt.loadNpmTasks('grunt-browser-sync');
-    grunt.registerTask('server', ['browserSync'])
+    grunt.loadNpmTasks('grunt-sass');
+
+    grunt.registerTask('server', ['browserSync']);
+    grunt.registerTask('css', ['sass']);
 }
