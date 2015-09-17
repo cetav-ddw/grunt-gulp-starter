@@ -1,6 +1,7 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var sass = require('gulp-sass');
+var uglify = require('gulp-uglify');
 
 // Static server
 gulp.task('server', function() {
@@ -15,4 +16,11 @@ gulp.task('css', function () {
   gulp.src('./*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./'));
+});
+
+ 
+gulp.task('minify', function() {
+  return gulp.src('main.js')
+    .pipe(uglify())
+    .pipe(gulp.dest('assets/'));
 });
